@@ -66,13 +66,13 @@ const projects: Project[] = [
   {
     id: "hush",
     title: "Hush",
-    subtitle: "Encrypted Messaging & Privacy App",
-    tech: ["Flutter", "Dart", "Cryptography", "Firebase", "WebSockets"],
-    description: "A secure, privacy-focused messaging application featuring end-to-end encryption, ephemeral message self-destruction, anonymous authentication, and zero-knowledge data architecture.",
+    subtitle: "Cross-Platform E2EE Chat App",
+    tech: ["Flutter", "Dart", "Supabase", "Libsodium", "Riverpod", "XChaCha20-Poly1305"],
+    description: "Cross-platform end-to-end encrypted (E2EE) messaging app built with Flutter & Supabase. Features zero-knowledge architecture, libsodium cryptography, X25519 forward secrecy, and anonymous session mode without account creation.",
     category: "Mobile",
-    badge: "Flutter App",
+    badge: "Flutter + Supabase",
     gradient: "from-emerald-500/20 via-teal-500/10 to-transparent",
-    projectUrl: "https://github.com/AhmedGamalFarouk?tab=repositories",
+    projectUrl: "https://github.com/AhmedGamalFarouk/hush",
   },
   {
     id: "project-echo",
@@ -341,7 +341,7 @@ const PrismaHero = () => {
               badge: project.badge,
               projectUrl: project.projectUrl,
               imageUrl: [
-                "https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?q=80&w=1200&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1200&auto=format&fit=crop",
                 "https://images.unsplash.com/photo-1590650153855-d9e808231d41?q=80&w=1200&auto=format&fit=crop",
                 "https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1200&auto=format&fit=crop",
                 "https://images.unsplash.com/photo-1472851294608-062f824d29cc?q=80&w=1200&auto=format&fit=crop",
