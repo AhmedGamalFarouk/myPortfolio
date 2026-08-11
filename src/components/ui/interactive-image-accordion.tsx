@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 
 // --- Project Data derived from Ahmed Gamal's Resume & Portfolio ---
