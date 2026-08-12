@@ -60,6 +60,7 @@ interface Project {
   badge: string;
   gradient: string;
   projectUrl: string;
+  imageUrl?: string;
 }
 
 const projects: Project[] = [
