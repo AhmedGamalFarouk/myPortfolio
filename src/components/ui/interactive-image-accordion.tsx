@@ -38,7 +38,7 @@ export const defaultProjectsAccordionItems: ProjectAccordionItemData[] = [
     badge: "React 19 + Firebase",
     imageUrl: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=1200&auto=format&fit=crop",
     projectUrl: "https://github.com/AhmedGamalFarouk/Circle",
-    liveUrl: "https://circle-nu-three.vercel.app/",
+    liveUrl: "https://circle-seven-tau.vercel.app",
   },
   {
     id: 3,

@@ -86,7 +86,7 @@ const projects: Project[] = [
     badge: "React 19 + Firebase",
     gradient: "from-blue-500/20 via-indigo-500/10 to-transparent",
     projectUrl: "https://github.com/AhmedGamalFarouk/Circle",
-    liveUrl: "https://circle-nu-three.vercel.app/",
+    liveUrl: "https://circle-seven-tau.vercel.app",
   },
   {
     id: "circle-mobile",
