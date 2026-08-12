@@ -107,9 +107,9 @@ const AccordionItem: React.FC<AccordionItemProps> = ({ item, isActive, onMouseEn
   return (
     <div
       className={`
-        relative h-[480px] rounded-2xl overflow-hidden cursor-pointer
-        transition-all duration-700 ease-in-out border border-white/10 group
-        ${isActive ? 'w-[320px] sm:w-[380px] md:w-[420px] shadow-2xl border-emerald-500/40 ring-1 ring-emerald-500/30' : 'w-[70px] sm:w-[80px] opacity-75 hover:opacity-100'}
+        relative h-[380px] xs:h-[420px] sm:h-[480px] rounded-2xl overflow-hidden cursor-pointer
+        transition-all duration-700 ease-in-out border border-white/10 group flex-shrink-0
+        ${isActive ? 'w-[280px] xs:w-[320px] sm:w-[380px] md:w-[420px] shadow-2xl border-emerald-500/40 ring-1 ring-emerald-500/30' : 'w-[52px] xs:w-[60px] sm:w-[80px] opacity-75 hover:opacity-100'}
       `}
       onMouseEnter={onMouseEnter}
       onClick={onClick}
@@ -127,12 +127,12 @@ const AccordionItem: React.FC<AccordionItemProps> = ({ item, isActive, onMouseEn
       />
       
       {/* Gradient & Dark overlay for readability */}
-      <div className={`absolute inset-0 transition-opacity duration-500 ${isActive ? 'bg-gradient-to-t from-black via-black/50 to-black/30' : 'bg-black/65'}`} />
+      <div className={`absolute inset-0 transition-opacity duration-500 ${isActive ? 'bg-gradient-to-t from-black via-black/60 to-black/30' : 'bg-black/65'}`} />
 
       {/* Badge Top Left when active */}
       {isActive && (
-        <div className="absolute top-5 left-5 z-10">
-          <span className="rounded-full border border-emerald-500/30 bg-black/70 px-3 py-1 text-xs font-mono text-emerald-400 backdrop-blur-md">
+        <div className="absolute top-3 left-3 sm:top-5 sm:left-5 z-10">
+          <span className="rounded-full border border-emerald-500/30 bg-black/70 px-2.5 py-0.5 sm:px-3 sm:py-1 text-[10px] sm:text-xs font-mono text-emerald-400 backdrop-blur-md">
             {item.badge}
           </span>
         </div>
@@ -144,28 +144,28 @@ const AccordionItem: React.FC<AccordionItemProps> = ({ item, isActive, onMouseEn
           absolute transition-all duration-500 ease-in-out z-10 text-white
           ${
             isActive
-              ? 'bottom-6 left-6 right-6 translate-y-0 opacity-100 rotate-0'
-              : 'bottom-20 left-1/2 -translate-x-1/2 rotate-90 whitespace-nowrap opacity-90'
+              ? 'bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 translate-y-0 opacity-100 rotate-0'
+              : 'bottom-16 sm:bottom-20 left-1/2 -translate-x-1/2 rotate-90 whitespace-nowrap opacity-90'
           }
         `}
       >
         {isActive ? (
           <div>
-            <span className="text-xs font-mono tracking-widest text-emerald-400 uppercase">{item.subtitle}</span>
-            <h3 className="text-2xl sm:text-3xl font-medium text-[#E1E0CC] mt-0.5">{item.title}</h3>
-            <p className="mt-2 text-xs sm:text-sm text-white/80 font-light line-clamp-2 leading-relaxed">
+            <span className="text-[10px] sm:text-xs font-mono tracking-widest text-emerald-400 uppercase">{item.subtitle}</span>
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-medium text-[#E1E0CC] mt-0.5">{item.title}</h3>
+            <p className="mt-1 sm:mt-2 text-xs sm:text-sm text-white/80 font-light line-clamp-2 leading-relaxed">
               {item.description}
             </p>
-            <div className="mt-4 flex flex-wrap gap-1.5 pt-3 border-t border-white/15">
+            <div className="mt-2 sm:mt-4 flex flex-wrap gap-1 sm:gap-1.5 pt-2 sm:pt-3 border-t border-white/15">
               {item.tech.slice(0, 4).map((t) => (
-                <span key={t} className="rounded bg-white/10 px-2 py-0.5 text-[10px] font-mono text-white/80">
+                <span key={t} className="rounded bg-white/10 px-1.5 py-0.5 text-[9px] sm:text-[10px] font-mono text-white/80">
                   {t}
                 </span>
               ))}
             </div>
           </div>
         ) : (
-          <span className="text-base sm:text-lg font-semibold tracking-wide text-[#E1E0CC]">
+          <span className="text-xs sm:text-base md:text-lg font-semibold tracking-wide text-[#E1E0CC]">
             {item.title}
           </span>
         )}
@@ -186,20 +186,24 @@ export function LandingAccordionItem({ items = defaultProjectsAccordionItems, on
   // Clamp activeIndex when items array length changes due to filtering
   const safeActiveIndex = activeIndex >= items.length ? Math.max(0, items.length - 1) : activeIndex;
 
-  const handleItemHover = (index: number) => {
-    setActiveIndex(index);
+  const handleItemSelect = (index: number, item: ProjectAccordionItemData) => {
+    if (activeIndex === index) {
+      onSelectProject?.(item);
+    } else {
+      setActiveIndex(index);
+    }
   };
 
   return (
     <div className="w-full">
-      <div className="flex flex-row items-center justify-center gap-3 sm:gap-4 overflow-x-auto py-6 px-2 scrollbar-none">
+      <div className="flex flex-row items-center justify-start md:justify-center gap-2 sm:gap-3 md:gap-4 overflow-x-auto py-6 px-2 sm:px-4 scrollbar-thin scrollbar-thumb-white/20">
         {items.map((item, index) => (
           <AccordionItem
             key={item.id}
             item={item}
             isActive={index === safeActiveIndex}
-            onMouseEnter={() => handleItemHover(index)}
-            onClick={() => onSelectProject?.(item)}
+            onMouseEnter={() => setActiveIndex(index)}
+            onClick={() => handleItemSelect(index, item)}
           />
         ))}
       </div>

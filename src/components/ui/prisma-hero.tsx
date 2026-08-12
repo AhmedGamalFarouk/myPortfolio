@@ -171,13 +171,13 @@ const PrismaHero = () => {
   return (
     <div className="w-full bg-[#0a0a0c] text-[#E1E0CC] selection:bg-[#E1E0CC] selection:text-black">
       {/* Sticky Fixed Navbar across all sections */}
-      <nav className="fixed left-1/2 top-0 z-50 -translate-x-1/2">
-        <div className="flex items-center gap-3 rounded-b-2xl bg-black/80 px-5 py-3 backdrop-blur-xl sm:gap-6 md:gap-10 md:rounded-b-3xl md:px-8 border border-t-0 border-white/15 shadow-2xl">
+      <nav className="fixed left-1/2 top-0 z-50 -translate-x-1/2 w-full max-w-fit px-2 sm:px-0">
+        <div className="flex items-center justify-center gap-2 sm:gap-6 md:gap-10 rounded-b-2xl bg-black/80 px-3 py-2.5 backdrop-blur-xl sm:px-6 sm:py-3 md:rounded-b-3xl md:px-8 border border-t-0 border-white/15 shadow-2xl">
           {navItems.map((item) => (
             <a
               key={item.label}
               href={item.href}
-              className="text-[11px] font-medium tracking-wider uppercase transition-colors sm:text-xs md:text-sm text-[#E1E0CC]/70 hover:text-[#E1E0CC]"
+              className="text-[10px] sm:text-xs md:text-sm font-medium tracking-wider uppercase transition-colors text-[#E1E0CC]/70 hover:text-[#E1E0CC]"
             >
               {item.label}
             </a>
@@ -541,43 +541,43 @@ const PrismaHero = () => {
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.95, y: 20 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative max-w-2xl w-full rounded-2xl border border-white/20 bg-[#121216] p-8 shadow-2xl"
+              className="relative max-w-2xl w-full max-h-[90vh] overflow-y-auto rounded-2xl border border-white/20 bg-[#121216] p-5 sm:p-8 shadow-2xl scrollbar-thin scrollbar-thumb-white/20"
             >
               <button
                 onClick={() => setSelectedProject(null)}
-                className="absolute right-4 top-4 rounded-full bg-white/10 p-2 text-white/70 hover:bg-white/20 hover:text-white"
+                className="absolute right-3 top-3 sm:right-4 sm:top-4 rounded-full bg-white/10 p-2 text-white/70 hover:bg-white/20 hover:text-white"
               >
                 <X className="h-5 w-5" />
               </button>
 
-              <span className="rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-xs font-mono text-emerald-400">
+              <span className="inline-block rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-xs font-mono text-emerald-400">
                 {selectedProject.badge}
               </span>
 
-              <h3 className="mt-4 text-3xl font-medium text-white">{selectedProject.title}</h3>
-              <p className="text-sm font-mono text-white/50">{selectedProject.subtitle}</p>
+              <h3 className="mt-3 sm:mt-4 text-2xl sm:text-3xl font-medium text-white">{selectedProject.title}</h3>
+              <p className="text-xs sm:text-sm font-mono text-white/50">{selectedProject.subtitle}</p>
 
-              <p className="mt-6 text-sm text-white/80 font-light leading-relaxed">
+              <p className="mt-4 sm:mt-6 text-xs sm:text-sm text-white/80 font-light leading-relaxed">
                 {selectedProject.description}
               </p>
 
-              <div className="mt-6">
-                <h4 className="text-xs font-mono uppercase tracking-wider text-white/40 mb-2">Technologies Used</h4>
-                <div className="flex flex-wrap gap-2">
+              <div className="mt-4 sm:mt-6">
+                <h4 className="text-[10px] sm:text-xs font-mono uppercase tracking-wider text-white/40 mb-2">Technologies Used</h4>
+                <div className="flex flex-wrap gap-1.5 sm:gap-2">
                   {selectedProject.tech.map((t) => (
-                    <span key={t} className="rounded-md bg-white/10 px-3 py-1 text-xs font-mono text-white">
+                    <span key={t} className="rounded-md bg-white/10 px-2.5 py-1 text-[10px] sm:text-xs font-mono text-white">
                       {t}
                     </span>
                   ))}
                 </div>
               </div>
 
-              <div className="mt-8 flex items-center justify-between gap-3 pt-6 border-t border-white/10">
+              <div className="mt-6 sm:mt-8 flex items-center justify-between gap-3 pt-4 sm:pt-6 border-t border-white/10">
                 <a
                   href={selectedProject.projectUrl || "https://github.com/AhmedGamalFarouk?tab=repositories"}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full bg-[#E1E0CC] px-5 py-2 text-xs font-semibold text-black transition-all hover:bg-white hover:gap-3"
+                  className="inline-flex items-center gap-2 rounded-full bg-[#E1E0CC] px-4 py-2 sm:px-5 sm:py-2 text-[11px] sm:text-xs font-semibold text-black transition-all hover:bg-white hover:gap-3"
                 >
                   <Github className="h-4 w-4" />
                   View Repository
@@ -586,7 +586,7 @@ const PrismaHero = () => {
 
                 <button
                   onClick={() => setSelectedProject(null)}
-                  className="rounded-full border border-white/20 px-5 py-2 text-xs font-medium text-white/80 hover:bg-white/10"
+                  className="rounded-full border border-white/20 px-4 py-2 sm:px-5 sm:py-2 text-[11px] sm:text-xs font-medium text-white/80 hover:bg-white/10"
                 >
                   Close
                 </button>
