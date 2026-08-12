@@ -230,7 +230,7 @@ const PrismaHero = () => {
                   className="font-medium leading-[0.82] tracking-[-0.07em] text-[18vw] sm:text-[16vw] md:text-[14vw] lg:text-[13vw] xl:text-[12vw]"
                   style={{ color: "#E1E0CC" }}
                 >
-                  <WordsPullUp text="Ahmed" showAsterisk />
+                  <WordsPullUp text="Ahmed" />
                   <br />
                   <WordsPullUp text="Gamal" />
                 </h1>
