@@ -142,13 +142,13 @@ const projects: Project[] = [
   },
   {
     id: "project-echo",
-    title: "Project Echo",
-    subtitle: "Real-Time Audio & Collaboration Engine",
-    tech: ["TypeScript", "Node.js", "WebRTC", "Socket.io"],
-    description: "Low-latency voice communication and audio streaming platform built for remote teams and gamers, featuring spatial audio rendering, noise cancellation, and room-based channels.",
-    category: "Mobile",
-    badge: "TypeScript + WebRTC",
-    gradient: "from-indigo-500/20 via-blue-500/10 to-transparent",
+    title: "Project ECHO",
+    subtitle: "The Social Network That Forgets",
+    tech: ["Next.js 15", "React 19", "Tailwind CSS v4", "Convex", "Clerk Auth", "Mapbox GL JS"],
+    description: "An ephemeral, pseudonymous social platform where users log mood responses to a daily global prompt. Public posts vanish automatically after a rolling 24-hour window, while a real-time Mapbox GL JS pulse map visualizes the world's emotional state by city.",
+    category: "Web",
+    badge: "Next.js + Convex",
+    gradient: "from-cyan-500/20 via-blue-500/10 to-transparent",
     projectUrl: "https://github.com/AhmedGamalFarouk/project-echo",
   },
   {
@@ -340,16 +340,16 @@ const PrismaHero = () => {
               description: project.description,
               badge: project.badge,
               projectUrl: project.projectUrl,
-              imageUrl: [
-                "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1200&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1590650153855-d9e808231d41?q=80&w=1200&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1200&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1472851294608-062f824d29cc?q=80&w=1200&auto=format&fit=crop",
+              imageUrl: project.imageUrl || [
+                "/images/hush-cover.jpg",
                 "https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=1200&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?q=80&w=1200&auto=format&fit=crop",
                 "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1200&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1472851294608-062f824d29cc?q=80&w=1200&auto=format&fit=crop",
                 "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=1200&auto=format&fit=crop",
                 "https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=1200&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1556742049-0a670c480728?q=80&w=1200&auto=format&fit=crop",
+                "/images/echo-cover.jpg",
+                "https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1200&auto=format&fit=crop",
               ][idx % 9]
             }))}
             onSelectProject={(project) => setSelectedProject({
