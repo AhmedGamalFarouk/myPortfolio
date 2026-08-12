@@ -85,12 +85,12 @@ export const defaultProjectsAccordionItems: ProjectAccordionItemData[] = [
   {
     id: 7,
     title: "Game Studio",
-    subtitle: "Interactive 3D Game Showcase & Portal",
+    subtitle: "Next.js Game Collection & Wishlist Portal",
     category: "Web",
-    tech: ["React", "Three.js", "WebGL", "Tailwind CSS", "Vite"],
-    description: "An immersive 3D game studio landing portal featuring interactive 3D model viewports, game telemetry dashboards, trailer showcases, and real-time player statistics.",
-    badge: "React + Three.js",
-    imageUrl: "https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1200&auto=format&fit=crop",
+    tech: ["Next.js", "React", "JavaScript", "Tailwind CSS", "REST API"],
+    description: "A Next.js web application designed to showcase a curated collection of games, manage user wishlists, explore game categories, and provide detailed game information with custom API integration.",
+    badge: "Next.js + React",
+    imageUrl: "/images/game-studio-cover.jpg",
     projectUrl: "https://github.com/AhmedGamalFarouk/game-studio",
   },
 ];

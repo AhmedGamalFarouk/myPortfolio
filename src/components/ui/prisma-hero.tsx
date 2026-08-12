@@ -133,13 +133,14 @@ const projects: Project[] = [
   {
     id: "game-studio",
     title: "Game Studio",
-    subtitle: "Interactive 3D Game Showcase & Portal",
-    tech: ["React", "Three.js", "WebGL", "Tailwind CSS", "Vite"],
-    description: "An immersive 3D game studio landing portal featuring interactive 3D model viewports, game telemetry dashboards, trailer showcases, and real-time player statistics.",
+    subtitle: "Next.js Game Collection & Wishlist Portal",
+    tech: ["Next.js", "React", "JavaScript", "Tailwind CSS", "REST API"],
+    description: "A Next.js web application designed to showcase a curated collection of games, manage user wishlists, explore game categories, and provide detailed game information with custom API integration.",
     category: "Web",
-    badge: "React + Three.js",
+    badge: "Next.js + React",
     gradient: "from-purple-500/20 via-violet-500/10 to-transparent",
     projectUrl: "https://github.com/AhmedGamalFarouk/game-studio",
+    imageUrl: "/images/game-studio-cover.jpg",
   },
 ];
 
