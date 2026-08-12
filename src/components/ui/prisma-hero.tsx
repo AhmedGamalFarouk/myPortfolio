@@ -60,6 +60,7 @@ interface Project {
   badge: string;
   gradient: string;
   projectUrl: string;
+  liveUrl?: string;
   imageUrl?: string;
 }
 
@@ -107,6 +108,7 @@ const projects: Project[] = [
     badge: "React + Redux",
     gradient: "from-emerald-500/20 via-teal-500/10 to-transparent",
     projectUrl: "https://github.com/AhmedGamalFarouk/cinema-flux",
+    liveUrl: "https://ahmedgamalfarouk.github.io/cinema-flux/",
   },
   {
     id: "eshtry",
@@ -320,6 +322,7 @@ const PrismaHero = () => {
               description: project.description,
               badge: project.badge,
               projectUrl: project.projectUrl,
+              liveUrl: project.liveUrl,
               imageUrl: project.imageUrl || [
                 "/images/hush-cover.jpg",
                 "https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=1200&auto=format&fit=crop",
@@ -341,6 +344,7 @@ const PrismaHero = () => {
               category: project.category as any,
               badge: project.badge,
               projectUrl: project.projectUrl || "https://github.com/AhmedGamalFarouk?tab=repositories",
+              liveUrl: project.liveUrl,
               gradient: "from-emerald-500/20 via-teal-500/10 to-transparent"
             })}
           />
@@ -572,17 +576,30 @@ const PrismaHero = () => {
                 </div>
               </div>
 
-              <div className="mt-6 sm:mt-8 flex items-center justify-between gap-3 pt-4 sm:pt-6 border-t border-white/10">
-                <a
-                  href={selectedProject.projectUrl || "https://github.com/AhmedGamalFarouk?tab=repositories"}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full bg-[#E1E0CC] px-4 py-2 sm:px-5 sm:py-2 text-[11px] sm:text-xs font-semibold text-black transition-all hover:bg-white hover:gap-3"
-                >
-                  <Github className="h-4 w-4" />
-                  View Repository
-                  <ExternalLink className="h-3.5 w-3.5" />
-                </a>
+              <div className="mt-6 sm:mt-8 flex flex-wrap items-center justify-between gap-3 pt-4 sm:pt-6 border-t border-white/10">
+                <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+                  {selectedProject.liveUrl && (
+                    <a
+                      href={selectedProject.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded-full bg-emerald-400 px-4 py-2 sm:px-5 sm:py-2 text-[11px] sm:text-xs font-semibold text-black transition-all hover:bg-emerald-300 hover:gap-3 shadow-lg shadow-emerald-500/20"
+                    >
+                      <ExternalLink className="h-4 w-4" />
+                      Open Live App
+                    </a>
+                  )}
+
+                  <a
+                    href={selectedProject.projectUrl || "https://github.com/AhmedGamalFarouk?tab=repositories"}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full bg-[#E1E0CC] px-4 py-2 sm:px-5 sm:py-2 text-[11px] sm:text-xs font-semibold text-black transition-all hover:bg-white hover:gap-3"
+                  >
+                    <Github className="h-4 w-4" />
+                    View Code
+                  </a>
+                </div>
 
                 <button
                   onClick={() => setSelectedProject(null)}

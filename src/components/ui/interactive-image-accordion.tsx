@@ -13,6 +13,7 @@ export interface ProjectAccordionItemData {
   imageUrl: string;
   badge: string;
   projectUrl?: string;
+  liveUrl?: string;
 }
 
 export const defaultProjectsAccordionItems: ProjectAccordionItemData[] = [
@@ -59,6 +60,7 @@ export const defaultProjectsAccordionItems: ProjectAccordionItemData[] = [
     badge: "React + Redux",
     imageUrl: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1200&auto=format&fit=crop",
     projectUrl: "https://github.com/AhmedGamalFarouk/cinema-flux",
+    liveUrl: "https://ahmedgamalfarouk.github.io/cinema-flux/",
   },
   {
     id: 5,
@@ -156,12 +158,26 @@ const AccordionItem: React.FC<AccordionItemProps> = ({ item, isActive, onMouseEn
             <p className="mt-1 sm:mt-2 text-xs sm:text-sm text-white/80 font-light line-clamp-2 leading-relaxed">
               {item.description}
             </p>
-            <div className="mt-2 sm:mt-4 flex flex-wrap gap-1 sm:gap-1.5 pt-2 sm:pt-3 border-t border-white/15">
-              {item.tech.slice(0, 4).map((t) => (
-                <span key={t} className="rounded bg-white/10 px-1.5 py-0.5 text-[9px] sm:text-[10px] font-mono text-white/80">
-                  {t}
-                </span>
-              ))}
+            <div className="mt-2 sm:mt-4 flex flex-wrap items-center justify-between gap-2 pt-2 sm:pt-3 border-t border-white/15">
+              <div className="flex flex-wrap gap-1 sm:gap-1.5">
+                {item.tech.slice(0, 4).map((t) => (
+                  <span key={t} className="rounded bg-white/10 px-1.5 py-0.5 text-[9px] sm:text-[10px] font-mono text-white/80">
+                    {t}
+                  </span>
+                ))}
+              </div>
+
+              {item.liveUrl && (
+                <a
+                  href={item.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  className="inline-flex items-center gap-1 rounded-full bg-emerald-400 px-2.5 py-1 text-[10px] sm:text-xs font-semibold text-black hover:bg-emerald-300 transition-colors"
+                >
+                  Live Demo ↗
+                </a>
+              )}
             </div>
           </div>
         ) : (
