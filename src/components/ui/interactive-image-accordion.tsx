@@ -170,28 +170,38 @@ const AccordionItem: React.FC<AccordionItemProps> = ({ item, isActive, onMouseEn
 
               {/* Action Buttons */}
               <div className="flex items-center gap-2">
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    onClick?.();
-                  }}
-                  className="inline-flex items-center gap-1.5 rounded-full bg-emerald-400 px-3 py-1 text-[10px] sm:text-xs font-semibold text-black hover:bg-emerald-300 transition-all shadow-md shadow-emerald-500/20"
-                >
-                  <span>Live Preview</span>
-                  <span className="text-[10px]">✨</span>
-                </button>
-
-                {item.liveUrl && (
+                {item.category === "Web" ? (
                   <a
-                    href={item.liveUrl}
+                    href={item.liveUrl || item.projectUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={(e) => e.stopPropagation()}
-                    className="inline-flex items-center gap-1 rounded-full bg-white/15 px-2.5 py-1 text-[10px] sm:text-xs font-medium text-white hover:bg-white/25 transition-colors"
+                    className="inline-flex items-center gap-1.5 rounded-full bg-emerald-400 px-3.5 py-1 text-[10px] sm:text-xs font-semibold text-black hover:bg-emerald-300 transition-all shadow-md shadow-emerald-500/20"
                   >
-                    Direct ↗
+                    <span>Open Live Site</span>
+                    <span className="font-sans">↗</span>
                   </a>
+                ) : (
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onClick?.();
+                    }}
+                    className="inline-flex items-center gap-1.5 rounded-full bg-emerald-400 px-3.5 py-1 text-[10px] sm:text-xs font-semibold text-black hover:bg-emerald-300 transition-all shadow-md shadow-emerald-500/20"
+                  >
+                    <span>Interactive App</span>
+                  </button>
                 )}
+
+                <a
+                  href={item.projectUrl || "https://github.com/AhmedGamalFarouk"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  className="inline-flex items-center gap-1 rounded-full bg-white/15 px-2.5 py-1 text-[10px] sm:text-xs font-medium text-white hover:bg-white/25 transition-colors"
+                >
+                  GitHub ↗
+                </a>
               </div>
             </div>
           </div>

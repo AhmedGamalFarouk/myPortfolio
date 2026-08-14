@@ -76,6 +76,8 @@ const projects: Project[] = [
     badge: "Flutter + Supabase",
     gradient: "from-emerald-500/20 via-teal-500/10 to-transparent",
     projectUrl: "https://github.com/AhmedGamalFarouk/hush",
+    liveUrl: "/demos/hush/",
+    imageUrl: "/images/hush-cover.jpg",
   },
   {
     id: "circle-web",
@@ -88,6 +90,7 @@ const projects: Project[] = [
     gradient: "from-blue-500/20 via-indigo-500/10 to-transparent",
     projectUrl: "https://github.com/AhmedGamalFarouk/Circle",
     liveUrl: "https://circle-seven-tau.vercel.app",
+    imageUrl: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=1200&auto=format&fit=crop",
   },
   {
     id: "circle-mobile",
@@ -99,6 +102,8 @@ const projects: Project[] = [
     badge: "React Native",
     gradient: "from-purple-500/20 via-pink-500/10 to-transparent",
     projectUrl: "https://github.com/AhmedGamalFarouk/Circle-mobile",
+    liveUrl: "/demos/echo-mobile/",
+    imageUrl: "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?q=80&w=1200&auto=format&fit=crop",
   },
   {
     id: "cinema-flux",
@@ -111,6 +116,7 @@ const projects: Project[] = [
     gradient: "from-emerald-500/20 via-teal-500/10 to-transparent",
     projectUrl: "https://github.com/AhmedGamalFarouk/cinema-flux",
     liveUrl: "https://ahmedgamalfarouk.github.io/cinema-flux/",
+    imageUrl: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1200&auto=format&fit=crop",
   },
   {
     id: "eshtry",
@@ -122,6 +128,8 @@ const projects: Project[] = [
     badge: "Flutter + BLoC",
     gradient: "from-amber-500/20 via-rose-500/10 to-transparent",
     projectUrl: "https://github.com/AhmedGamalFarouk/Eshtry-menny",
+    liveUrl: "/demos/eshtry/",
+    imageUrl: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?q=80&w=1200&auto=format&fit=crop",
   },
   {
     id: "project-echo",
@@ -133,6 +141,8 @@ const projects: Project[] = [
     badge: "Next.js + Convex",
     gradient: "from-cyan-500/20 via-blue-500/10 to-transparent",
     projectUrl: "https://github.com/AhmedGamalFarouk/project-echo",
+    liveUrl: "https://github.com/AhmedGamalFarouk/project-echo",
+    imageUrl: "/images/echo-cover.jpg",
   },
   {
     id: "game-studio",
@@ -144,6 +154,7 @@ const projects: Project[] = [
     badge: "Next.js + React",
     gradient: "from-purple-500/20 via-violet-500/10 to-transparent",
     projectUrl: "https://github.com/AhmedGamalFarouk/game-studio",
+    liveUrl: "https://github.com/AhmedGamalFarouk/game-studio",
     imageUrl: "/images/game-studio-cover.jpg",
   },
 ];
@@ -377,19 +388,26 @@ const PrismaHero = () => {
                 "https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1200&auto=format&fit=crop",
               ][idx % 9]
             }))}
-            onSelectProject={(project) => setSelectedProject({
-              id: String(project.id),
-              title: project.title,
-              subtitle: project.subtitle,
-              tech: project.tech,
-              description: project.description,
-              category: project.category as any,
-              badge: project.badge,
-              projectUrl: project.projectUrl || "https://github.com/AhmedGamalFarouk?tab=repositories",
-              liveUrl: project.liveUrl,
-              imageUrl: project.imageUrl,
-              gradient: "from-emerald-500/20 via-teal-500/10 to-transparent"
-            })}
+            onSelectProject={(project) => {
+              if (project.category === "Web") {
+                const target = project.liveUrl || project.projectUrl;
+                if (target) window.open(target, "_blank");
+              } else {
+                setSelectedProject({
+                  id: String(project.id),
+                  title: project.title,
+                  subtitle: project.subtitle,
+                  tech: project.tech,
+                  description: project.description,
+                  category: project.category as any,
+                  badge: project.badge,
+                  projectUrl: project.projectUrl || "https://github.com/AhmedGamalFarouk?tab=repositories",
+                  liveUrl: project.liveUrl,
+                  imageUrl: project.imageUrl,
+                  gradient: "from-emerald-500/20 via-teal-500/10 to-transparent"
+                });
+              }
+            }}
           />
         </div>
       </section>
