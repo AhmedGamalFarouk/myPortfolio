@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Prisma — Worldwide Network of Visual Artists & Storytellers",
+  title: "Ahmed Gamal | Front-End & Mobile Engineer",
   description:
-    "Prisma is a worldwide network of visual artists, filmmakers and storytellers bound not by place, status or labels but by passion and hunger to unlock potential.",
+    "Personal portfolio of Ahmed Gamal — Front-End & Mobile Engineer crafting high-performance mobile apps & web experiences with Flutter, React Native, React, & TypeScript.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
