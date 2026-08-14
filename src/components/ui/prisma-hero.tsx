@@ -154,11 +154,51 @@ const skillsList = [
   { category: "Tools & Workflow", items: ["Git", "GitHub", "CI/CD", "Cursor", "VS Code", "Figma", "Agile/Scrum"] },
 ];
 
+const certificatesList = [
+  {
+    title: "Software Development Specialist",
+    issuer: "Information Technology Institute (ITI)",
+    field: "Front-End & Cross-Platform Development",
+    iconColor: "text-emerald-400 border-emerald-500/20 bg-emerald-500/10",
+  },
+  {
+    title: "Flutter Development",
+    issuer: "Orange Digital Center",
+    field: "Cross-Platform Mobile Apps",
+    iconColor: "text-orange-400 border-orange-500/20 bg-orange-500/10",
+  },
+  {
+    title: "Network Security Fundamentals",
+    issuer: "Microsoft",
+    field: "Cybersecurity & Security Basics",
+    iconColor: "text-blue-400 border-blue-500/20 bg-blue-500/10",
+  },
+  {
+    title: "UX Design Specialization",
+    issuer: "Udacity",
+    field: "User Experience & UI Principles",
+    iconColor: "text-cyan-400 border-cyan-500/20 bg-cyan-500/10",
+  },
+  {
+    title: "Java Development",
+    issuer: "ITI (Maharatech)",
+    field: "OOP & Java Programming",
+    iconColor: "text-amber-400 border-amber-500/20 bg-amber-500/10",
+  },
+  {
+    title: "Android App Development",
+    issuer: "YAT Learning Centers",
+    field: "Native Mobile App Architecture",
+    iconColor: "text-purple-400 border-purple-500/20 bg-purple-500/10",
+  },
+];
+
 const navItems = [
   { label: "About", href: "#hero" },
   { label: "Projects", href: "#projects" },
   { label: "Skills", href: "#skills" },
   { label: "Experience", href: "#experience" },
+  { label: "Certificates", href: "#certificates" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -461,6 +501,54 @@ const PrismaHero = () => {
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------------- CERTIFICATES SECTION ---------------- */}
+      <section id="certificates" className="border-t border-white/10 bg-black/60 py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-14 text-center">
+            <span className="font-mono text-xs uppercase tracking-widest text-emerald-400 flex items-center justify-center gap-2">
+              <Award className="h-4 w-4" />
+              Verified Credentials
+            </span>
+            <h2 className="mt-2 text-3xl font-medium tracking-tight sm:text-5xl text-[#E1E0CC]">
+              Certificates & Specializations
+            </h2>
+            <p className="mt-3 text-sm font-light text-white/60 max-w-xl mx-auto">
+              Professional certifications and specialized training programs completed across mobile development, front-end engineering, UX design, and security.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {certificatesList.map((cert, idx) => (
+              <motion.div
+                key={cert.title}
+                initial={{ y: 20, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.08 }}
+                className="group relative rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition-all duration-300 hover:border-emerald-500/40 hover:bg-white/[0.06] hover:shadow-xl"
+              >
+                <div className="flex items-start gap-4">
+                  <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border ${cert.iconColor}`}>
+                    <Award className="h-6 w-6" />
+                  </div>
+                  <div>
+                    <span className="text-[11px] font-mono uppercase tracking-wider text-emerald-400">
+                      {cert.issuer}
+                    </span>
+                    <h3 className="mt-1 text-lg font-medium text-white group-hover:text-emerald-300 transition-colors">
+                      {cert.title}
+                    </h3>
+                    <p className="mt-2 text-xs font-light text-white/60">
+                      {cert.field}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
