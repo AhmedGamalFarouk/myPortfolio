@@ -27,6 +27,7 @@ export const defaultProjectsAccordionItems: ProjectAccordionItemData[] = [
     badge: "Flutter + Supabase",
     imageUrl: "/images/hush-cover.jpg",
     projectUrl: "https://github.com/AhmedGamalFarouk/hush",
+    liveUrl: "/demos/hush/",
   },
   {
     id: 2,
@@ -50,6 +51,7 @@ export const defaultProjectsAccordionItems: ProjectAccordionItemData[] = [
     badge: "React Native",
     imageUrl: "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?q=80&w=1200&auto=format&fit=crop",
     projectUrl: "https://github.com/AhmedGamalFarouk/Circle-mobile",
+    liveUrl: "/demos/circle-mobile/",
   },
   {
     id: 4,
@@ -73,6 +75,7 @@ export const defaultProjectsAccordionItems: ProjectAccordionItemData[] = [
     badge: "Flutter + BLoC",
     imageUrl: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?q=80&w=1200&auto=format&fit=crop",
     projectUrl: "https://github.com/AhmedGamalFarouk/Eshtry-menny",
+    liveUrl: "/demos/eshtry/",
   },
   {
     id: 6,

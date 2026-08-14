@@ -102,7 +102,7 @@ const projects: Project[] = [
     badge: "React Native",
     gradient: "from-purple-500/20 via-pink-500/10 to-transparent",
     projectUrl: "https://github.com/AhmedGamalFarouk/Circle-mobile",
-    liveUrl: "/demos/echo-mobile/",
+    liveUrl: "/demos/circle-mobile/",
     imageUrl: "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?q=80&w=1200&auto=format&fit=crop",
   },
   {
