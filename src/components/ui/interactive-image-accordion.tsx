@@ -27,7 +27,6 @@ export const defaultProjectsAccordionItems: ProjectAccordionItemData[] = [
     badge: "Flutter + Supabase",
     imageUrl: "/images/hush-cover.jpg",
     projectUrl: "https://github.com/AhmedGamalFarouk/hush",
-    liveUrl: "/demos/hush/",
   },
   {
     id: 2,
@@ -51,7 +50,6 @@ export const defaultProjectsAccordionItems: ProjectAccordionItemData[] = [
     badge: "React Native",
     imageUrl: "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?q=80&w=1200&auto=format&fit=crop",
     projectUrl: "https://github.com/AhmedGamalFarouk/Circle-mobile",
-    liveUrl: "/demos/circle-mobile/",
   },
   {
     id: 4,
@@ -75,7 +73,6 @@ export const defaultProjectsAccordionItems: ProjectAccordionItemData[] = [
     badge: "Flutter + BLoC",
     imageUrl: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?q=80&w=1200&auto=format&fit=crop",
     projectUrl: "https://github.com/AhmedGamalFarouk/Eshtry-menny",
-    liveUrl: "/demos/eshtry/",
   },
   {
     id: 6,
@@ -171,41 +168,17 @@ const AccordionItem: React.FC<AccordionItemProps> = ({ item, isActive, onMouseEn
                 ))}
               </div>
 
-              {/* Action Buttons */}
-              <div className="flex items-center gap-2">
-                {item.category === "Web" ? (
-                  <a
-                    href={item.liveUrl || item.projectUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={(e) => e.stopPropagation()}
-                    className="inline-flex items-center gap-1.5 rounded-full bg-emerald-400 px-3.5 py-1 text-[10px] sm:text-xs font-semibold text-black hover:bg-emerald-300 transition-all shadow-md shadow-emerald-500/20"
-                  >
-                    <span>Open Live Site</span>
-                    <span className="font-sans">↗</span>
-                  </a>
-                ) : (
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      onClick?.();
-                    }}
-                    className="inline-flex items-center gap-1.5 rounded-full bg-emerald-400 px-3.5 py-1 text-[10px] sm:text-xs font-semibold text-black hover:bg-emerald-300 transition-all shadow-md shadow-emerald-500/20"
-                  >
-                    <span>Interactive App</span>
-                  </button>
-                )}
-
+              {item.liveUrl && (
                 <a
-                  href={item.projectUrl || "https://github.com/AhmedGamalFarouk"}
+                  href={item.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={(e) => e.stopPropagation()}
-                  className="inline-flex items-center gap-1 rounded-full bg-white/15 px-2.5 py-1 text-[10px] sm:text-xs font-medium text-white hover:bg-white/25 transition-colors"
+                  className="inline-flex items-center gap-1 rounded-full bg-emerald-400 px-2.5 py-1 text-[10px] sm:text-xs font-semibold text-black hover:bg-emerald-300 transition-colors"
                 >
-                  GitHub ↗
+                  Live Demo ↗
                 </a>
-              </div>
+              )}
             </div>
           </div>
         ) : (

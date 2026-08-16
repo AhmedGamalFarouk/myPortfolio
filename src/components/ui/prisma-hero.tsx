@@ -4,7 +4,6 @@ import { motion, useInView, AnimatePresence } from "framer-motion";
 import { ArrowRight, Code2, Sparkles, X, ExternalLink, Github, Mail, Phone, MapPin, GraduationCap, Award, Layers } from "lucide-react";
 import { useRef, useState } from "react";
 import { LandingAccordionItem, defaultProjectsAccordionItems } from "@/components/ui/interactive-image-accordion";
-import { ProjectPreviewModal, PreviewProjectData } from "@/components/ui/project-preview-modal";
 
 /* ---------------- WordsPullUp ---------------- */
 interface WordsPullUpProps {
@@ -76,8 +75,6 @@ const projects: Project[] = [
     badge: "Flutter + Supabase",
     gradient: "from-emerald-500/20 via-teal-500/10 to-transparent",
     projectUrl: "https://github.com/AhmedGamalFarouk/hush",
-    liveUrl: "/demos/hush/",
-    imageUrl: "/images/hush-cover.jpg",
   },
   {
     id: "circle-web",
@@ -90,7 +87,6 @@ const projects: Project[] = [
     gradient: "from-blue-500/20 via-indigo-500/10 to-transparent",
     projectUrl: "https://github.com/AhmedGamalFarouk/Circle",
     liveUrl: "https://circle-seven-tau.vercel.app",
-    imageUrl: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=1200&auto=format&fit=crop",
   },
   {
     id: "circle-mobile",
@@ -102,8 +98,6 @@ const projects: Project[] = [
     badge: "React Native",
     gradient: "from-purple-500/20 via-pink-500/10 to-transparent",
     projectUrl: "https://github.com/AhmedGamalFarouk/Circle-mobile",
-    liveUrl: "/demos/circle-mobile/",
-    imageUrl: "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?q=80&w=1200&auto=format&fit=crop",
   },
   {
     id: "cinema-flux",
@@ -116,7 +110,6 @@ const projects: Project[] = [
     gradient: "from-emerald-500/20 via-teal-500/10 to-transparent",
     projectUrl: "https://github.com/AhmedGamalFarouk/cinema-flux",
     liveUrl: "https://ahmedgamalfarouk.github.io/cinema-flux/",
-    imageUrl: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1200&auto=format&fit=crop",
   },
   {
     id: "eshtry",
@@ -128,8 +121,6 @@ const projects: Project[] = [
     badge: "Flutter + BLoC",
     gradient: "from-amber-500/20 via-rose-500/10 to-transparent",
     projectUrl: "https://github.com/AhmedGamalFarouk/Eshtry-menny",
-    liveUrl: "/demos/eshtry/",
-    imageUrl: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?q=80&w=1200&auto=format&fit=crop",
   },
   {
     id: "project-echo",
@@ -141,8 +132,6 @@ const projects: Project[] = [
     badge: "Next.js + Convex",
     gradient: "from-cyan-500/20 via-blue-500/10 to-transparent",
     projectUrl: "https://github.com/AhmedGamalFarouk/project-echo",
-    liveUrl: "https://github.com/AhmedGamalFarouk/project-echo",
-    imageUrl: "/images/echo-cover.jpg",
   },
   {
     id: "game-studio",
@@ -154,7 +143,6 @@ const projects: Project[] = [
     badge: "Next.js + React",
     gradient: "from-purple-500/20 via-violet-500/10 to-transparent",
     projectUrl: "https://github.com/AhmedGamalFarouk/game-studio",
-    liveUrl: "https://github.com/AhmedGamalFarouk/game-studio",
     imageUrl: "/images/game-studio-cover.jpg",
   },
 ];
@@ -388,26 +376,18 @@ const PrismaHero = () => {
                 "https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1200&auto=format&fit=crop",
               ][idx % 9]
             }))}
-            onSelectProject={(project) => {
-              if (project.category === "Web") {
-                const target = project.liveUrl || project.projectUrl;
-                if (target) window.open(target, "_blank");
-              } else {
-                setSelectedProject({
-                  id: String(project.id),
-                  title: project.title,
-                  subtitle: project.subtitle,
-                  tech: project.tech,
-                  description: project.description,
-                  category: project.category as any,
-                  badge: project.badge,
-                  projectUrl: project.projectUrl || "https://github.com/AhmedGamalFarouk?tab=repositories",
-                  liveUrl: project.liveUrl,
-                  imageUrl: project.imageUrl,
-                  gradient: "from-emerald-500/20 via-teal-500/10 to-transparent"
-                });
-              }
-            }}
+            onSelectProject={(project) => setSelectedProject({
+              id: String(project.id),
+              title: project.title,
+              subtitle: project.subtitle,
+              tech: project.tech,
+              description: project.description,
+              category: project.category as any,
+              badge: project.badge,
+              projectUrl: project.projectUrl || "https://github.com/AhmedGamalFarouk?tab=repositories",
+              liveUrl: project.liveUrl,
+              gradient: "from-emerald-500/20 via-teal-500/10 to-transparent"
+            })}
           />
         </div>
       </section>
@@ -639,11 +619,88 @@ const PrismaHero = () => {
         </div>
       </footer>
 
-      {/* ---------------- INTERACTIVE PROJECT PREVIEW THEATER MODAL ---------------- */}
-      <ProjectPreviewModal
-        project={selectedProject as PreviewProjectData | null}
-        onClose={() => setSelectedProject(null)}
-      />
+      {/* ---------------- PROJECT DETAILS MODAL ---------------- */}
+      <AnimatePresence>
+        {selectedProject && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedProject(null)}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-md"
+          >
+            <motion.div
+              initial={{ scale: 0.95, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.95, y: 20 }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative max-w-2xl w-full max-h-[90vh] overflow-y-auto rounded-2xl border border-white/20 bg-[#121216] p-5 sm:p-8 shadow-2xl scrollbar-thin scrollbar-thumb-white/20"
+            >
+              <button
+                onClick={() => setSelectedProject(null)}
+                className="absolute right-3 top-3 sm:right-4 sm:top-4 rounded-full bg-white/10 p-2 text-white/70 hover:bg-white/20 hover:text-white"
+              >
+                <X className="h-5 w-5" />
+              </button>
+
+              <span className="inline-block rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-xs font-mono text-emerald-400">
+                {selectedProject.badge}
+              </span>
+
+              <h3 className="mt-3 sm:mt-4 text-2xl sm:text-3xl font-medium text-white">{selectedProject.title}</h3>
+              <p className="text-xs sm:text-sm font-mono text-white/50">{selectedProject.subtitle}</p>
+
+              <p className="mt-4 sm:mt-6 text-xs sm:text-sm text-white/80 font-light leading-relaxed">
+                {selectedProject.description}
+              </p>
+
+              <div className="mt-4 sm:mt-6">
+                <h4 className="text-[10px] sm:text-xs font-mono uppercase tracking-wider text-white/40 mb-2">Technologies Used</h4>
+                <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                  {selectedProject.tech.map((t) => (
+                    <span key={t} className="rounded-md bg-white/10 px-2.5 py-1 text-[10px] sm:text-xs font-mono text-white">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-6 sm:mt-8 flex flex-wrap items-center justify-between gap-3 pt-4 sm:pt-6 border-t border-white/10">
+                <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+                  {selectedProject.liveUrl && (
+                    <a
+                      href={selectedProject.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded-full bg-emerald-400 px-4 py-2 sm:px-5 sm:py-2 text-[11px] sm:text-xs font-semibold text-black transition-all hover:bg-emerald-300 hover:gap-3 shadow-lg shadow-emerald-500/20"
+                    >
+                      <ExternalLink className="h-4 w-4" />
+                      Open Live App
+                    </a>
+                  )}
+
+                  <a
+                    href={selectedProject.projectUrl || "https://github.com/AhmedGamalFarouk?tab=repositories"}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full bg-[#E1E0CC] px-4 py-2 sm:px-5 sm:py-2 text-[11px] sm:text-xs font-semibold text-black transition-all hover:bg-white hover:gap-3"
+                  >
+                    <Github className="h-4 w-4" />
+                    View Code
+                  </a>
+                </div>
+
+                <button
+                  onClick={() => setSelectedProject(null)}
+                  className="rounded-full border border-white/20 px-4 py-2 sm:px-5 sm:py-2 text-[11px] sm:text-xs font-medium text-white/80 hover:bg-white/10"
+                >
+                  Close
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
