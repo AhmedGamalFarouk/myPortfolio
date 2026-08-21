@@ -110,9 +110,13 @@ const AccordionItem: React.FC<AccordionItemProps> = ({ item, isActive, onMouseEn
   return (
     <div
       className={`
-        relative h-[380px] xs:h-[420px] sm:h-[480px] rounded-2xl overflow-hidden cursor-pointer
-        transition-all duration-700 ease-in-out border border-white/10 group flex-shrink-0
-        ${isActive ? 'w-[280px] xs:w-[320px] sm:w-[380px] md:w-[420px] shadow-2xl border-emerald-500/40 ring-1 ring-emerald-500/30' : 'w-[52px] xs:w-[60px] sm:w-[80px] opacity-75 hover:opacity-100'}
+        relative h-[400px] xs:h-[440px] sm:h-[480px] rounded-2xl overflow-hidden cursor-pointer
+        transition-all duration-500 ease-in-out border border-white/10 group flex-shrink-0 select-none
+        ${
+          isActive 
+            ? "w-[260px] xs:w-[300px] sm:w-[380px] md:w-[420px] shadow-2xl border-emerald-500/40 ring-1 ring-emerald-500/30" 
+            : "w-[48px] xs:w-[56px] sm:w-[72px] md:w-[80px] opacity-75 hover:opacity-100 hover:border-white/25"
+        }
       `}
       onMouseEnter={onMouseEnter}
       onClick={onClick}
@@ -125,17 +129,23 @@ const AccordionItem: React.FC<AccordionItemProps> = ({ item, isActive, onMouseEn
         onError={(e) => {
           (e.target as HTMLImageElement).onerror = null;
           (e.target as HTMLImageElement).src =
-            'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1200&auto=format&fit=crop';
+            "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1200&auto=format&fit=crop";
         }}
       />
       
       {/* Gradient & Dark overlay for readability */}
-      <div className={`absolute inset-0 transition-opacity duration-500 ${isActive ? 'bg-gradient-to-t from-black via-black/60 to-black/30' : 'bg-black/65'}`} />
+      <div 
+        className={`absolute inset-0 transition-opacity duration-500 ${
+          isActive 
+            ? "bg-gradient-to-t from-black via-black/65 to-black/30" 
+            : "bg-black/70 group-hover:bg-black/50"
+        }`} 
+      />
 
       {/* Badge Top Left when active */}
       {isActive && (
         <div className="absolute top-3 left-3 sm:top-5 sm:left-5 z-10">
-          <span className="rounded-full border border-emerald-500/30 bg-black/70 px-2.5 py-0.5 sm:px-3 sm:py-1 text-[10px] sm:text-xs font-mono text-emerald-400 backdrop-blur-md">
+          <span className="inline-flex items-center rounded-full border border-emerald-500/30 bg-black/80 px-2.5 py-0.5 sm:px-3 sm:py-1 text-[10px] sm:text-xs font-mono text-emerald-400 backdrop-blur-md shadow-lg">
             {item.badge}
           </span>
         </div>
@@ -147,42 +157,52 @@ const AccordionItem: React.FC<AccordionItemProps> = ({ item, isActive, onMouseEn
           absolute transition-all duration-500 ease-in-out z-10 text-white
           ${
             isActive
-              ? 'bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 translate-y-0 opacity-100 rotate-0'
-              : 'bottom-16 sm:bottom-20 left-1/2 -translate-x-1/2 rotate-90 whitespace-nowrap opacity-90'
+              ? "bottom-3 left-3 right-3 sm:bottom-6 sm:left-6 sm:right-6 translate-y-0 opacity-100 rotate-0"
+              : "bottom-14 sm:bottom-20 left-1/2 -translate-x-1/2 rotate-90 whitespace-nowrap opacity-85"
           }
         `}
       >
         {isActive ? (
           <div>
-            <span className="text-[10px] sm:text-xs font-mono tracking-widest text-emerald-400 uppercase">{item.subtitle}</span>
-            <h3 className="text-xl sm:text-2xl md:text-3xl font-medium text-[#E1E0CC] mt-0.5">{item.title}</h3>
-            <p className="mt-1 sm:mt-2 text-xs sm:text-sm text-white/80 font-light line-clamp-2 leading-relaxed">
+            <span className="text-[10px] sm:text-xs font-mono tracking-widest text-emerald-400 uppercase">
+              {item.subtitle}
+            </span>
+            <h3 className="text-lg xs:text-xl sm:text-2xl md:text-3xl font-medium text-[#E1E0CC] mt-0.5 leading-tight">
+              {item.title}
+            </h3>
+            <p className="mt-1 sm:mt-2 text-[11px] sm:text-xs md:text-sm text-white/80 font-light line-clamp-2 leading-relaxed">
               {item.description}
             </p>
-            <div className="mt-2 sm:mt-4 flex flex-wrap items-center justify-between gap-2 pt-2 sm:pt-3 border-t border-white/15">
-              <div className="flex flex-wrap gap-1 sm:gap-1.5">
-                {item.tech.slice(0, 4).map((t) => (
-                  <span key={t} className="rounded bg-white/10 px-1.5 py-0.5 text-[9px] sm:text-[10px] font-mono text-white/80">
+
+            <div className="mt-2.5 sm:mt-4 flex flex-wrap items-center justify-between gap-2 pt-2 sm:pt-3 border-t border-white/15">
+              <div className="flex flex-wrap gap-1 sm:gap-1.5 max-w-[170px] sm:max-w-none">
+                {item.tech.slice(0, 3).map((t) => (
+                  <span key={t} className="rounded bg-white/10 px-1.5 py-0.5 text-[9px] sm:text-[10px] font-mono text-white/90">
                     {t}
                   </span>
                 ))}
               </div>
 
-              {item.liveUrl && (
-                <a
-                  href={item.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={(e) => e.stopPropagation()}
-                  className="inline-flex items-center gap-1 rounded-full bg-emerald-400 px-2.5 py-1 text-[10px] sm:text-xs font-semibold text-black hover:bg-emerald-300 transition-colors"
-                >
-                  Live Demo ↗
-                </a>
-              )}
+              <div className="flex items-center gap-1.5">
+                {item.liveUrl && (
+                  <a
+                    href={item.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="inline-flex items-center gap-1 rounded-full bg-emerald-400 px-2.5 py-1 text-[10px] sm:text-xs font-semibold text-black hover:bg-emerald-300 transition-colors shadow"
+                  >
+                    Live ↗
+                  </a>
+                )}
+                <span className="hidden xs:inline-block text-[10px] font-mono text-white/50">
+                  Tap for info
+                </span>
+              </div>
             </div>
           </div>
         ) : (
-          <span className="text-xs sm:text-base md:text-lg font-semibold tracking-wide text-[#E1E0CC]">
+          <span className="text-xs sm:text-sm md:text-base font-semibold tracking-wider text-[#E1E0CC]/90">
             {item.title}
           </span>
         )}
@@ -204,7 +224,7 @@ export function LandingAccordionItem({ items = defaultProjectsAccordionItems, on
   const safeActiveIndex = activeIndex >= items.length ? Math.max(0, items.length - 1) : activeIndex;
 
   const handleItemSelect = (index: number, item: ProjectAccordionItemData) => {
-    if (activeIndex === index) {
+    if (safeActiveIndex === index) {
       onSelectProject?.(item);
     } else {
       setActiveIndex(index);
@@ -213,7 +233,7 @@ export function LandingAccordionItem({ items = defaultProjectsAccordionItems, on
 
   return (
     <div className="w-full">
-      <div className="flex flex-row items-center justify-start md:justify-center gap-2 sm:gap-3 md:gap-4 overflow-x-auto py-6 px-2 sm:px-4 scrollbar-thin scrollbar-thumb-white/20">
+      <div className="flex flex-row items-center justify-start lg:justify-center gap-1.5 xs:gap-2 sm:gap-3 md:gap-4 overflow-x-auto py-4 sm:py-6 px-1 sm:px-4 scrollbar-thin scrollbar-thumb-white/20 scroll-smooth touch-pan-x">
         {items.map((item, index) => (
           <AccordionItem
             key={item.id}
