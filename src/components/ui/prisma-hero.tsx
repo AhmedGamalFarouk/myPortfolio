@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useInView, AnimatePresence } from "framer-motion";
-import { ArrowRight, Code2, Sparkles, X, ExternalLink, Github, Mail, Phone, MapPin, GraduationCap, Award, Layers } from "lucide-react";
+import { ArrowRight, Code2, Sparkles, X, ExternalLink, Github, Linkedin, Mail, Phone, MapPin, GraduationCap, Award, Layers } from "lucide-react";
 import { useRef, useState } from "react";
 import { LandingAccordionItem, defaultProjectsAccordionItems } from "@/components/ui/interactive-image-accordion";
 
@@ -586,6 +586,40 @@ const PrismaHero = () => {
               </a>
 
               <a
+                href="https://www.linkedin.com/in/ahmed-gamal-farouk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-4 rounded-xl border border-white/10 bg-white/5 p-4 transition-colors hover:border-[#0A66C2]/50 hover:bg-white/10"
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[#0A66C2]/15 text-[#0A66C2] group-hover:bg-[#0A66C2] group-hover:text-white transition-colors">
+                  <Linkedin className="h-6 w-6" />
+                </div>
+                <div>
+                  <div className="text-xs font-mono text-white/50 uppercase">LinkedIn</div>
+                  <div className="text-base font-medium text-white group-hover:text-sky-400 transition-colors">
+                    ahmed-gamal-farouk
+                  </div>
+                </div>
+              </a>
+
+              <a
+                href="https://github.com/AhmedGamalFarouk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-4 rounded-xl border border-white/10 bg-white/5 p-4 transition-colors hover:border-white/40 hover:bg-white/10"
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-white/10 text-white group-hover:bg-white group-hover:text-black transition-colors">
+                  <Github className="h-6 w-6" />
+                </div>
+                <div>
+                  <div className="text-xs font-mono text-white/50 uppercase">GitHub</div>
+                  <div className="text-base font-medium text-white group-hover:text-white transition-colors">
+                    AhmedGamalFarouk
+                  </div>
+                </div>
+              </a>
+
+              <a
                 href="tel:+201023510831"
                 className="group flex items-center gap-4 rounded-xl border border-white/10 bg-white/5 p-4 transition-colors hover:border-emerald-400/50 hover:bg-white/10"
               >
@@ -701,6 +735,41 @@ const PrismaHero = () => {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* ---------------- STICKY FLOATING SOCIAL ICONS ---------------- */}
+      <motion.aside
+        aria-label="Social Profiles"
+        initial={{ opacity: 0, scale: 0.8, y: 20 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+        className="fixed bottom-6 right-4 sm:right-6 z-40 flex flex-col items-center gap-2.5 rounded-full border border-white/15 bg-black/80 p-2 backdrop-blur-xl shadow-[0_10px_35px_rgba(0,0,0,0.6)]"
+      >
+        <a
+          href="https://github.com/AhmedGamalFarouk"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub Profile"
+          className="group relative flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full bg-white/5 text-[#E1E0CC]/80 transition-all duration-300 hover:bg-white hover:text-black hover:scale-110 hover:shadow-[0_0_20px_rgba(255,255,255,0.4)] focus:outline-none focus:ring-2 focus:ring-white/40"
+        >
+          <Github className="h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:scale-105" />
+          <span className="pointer-events-none absolute right-full mr-3 hidden rounded-lg border border-white/15 bg-black/90 px-2.5 py-1 text-xs font-mono tracking-wider text-white opacity-0 shadow-xl backdrop-blur-md transition-all duration-200 group-hover:opacity-100 group-hover:-translate-x-1 sm:block whitespace-nowrap">
+            GitHub
+          </span>
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/ahmed-gamal-farouk"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn Profile"
+          className="group relative flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full bg-white/5 text-[#E1E0CC]/80 transition-all duration-300 hover:bg-[#0A66C2] hover:text-white hover:scale-110 hover:shadow-[0_0_20px_rgba(10,102,194,0.6)] focus:outline-none focus:ring-2 focus:ring-[#0A66C2]/60"
+        >
+          <Linkedin className="h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:scale-105" />
+          <span className="pointer-events-none absolute right-full mr-3 hidden rounded-lg border border-white/15 bg-black/90 px-2.5 py-1 text-xs font-mono tracking-wider text-white opacity-0 shadow-xl backdrop-blur-md transition-all duration-200 group-hover:opacity-100 group-hover:-translate-x-1 sm:block whitespace-nowrap">
+            LinkedIn
+          </span>
+        </a>
+      </motion.aside>
     </div>
   );
 };
