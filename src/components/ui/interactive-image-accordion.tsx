@@ -87,6 +87,18 @@ export const defaultProjectsAccordionItems: ProjectAccordionItemData[] = [
   },
   {
     id: 7,
+    title: "Orderly",
+    subtitle: "Real-Time Group Food Ordering Platform",
+    category: "Web",
+    tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Real-Time Sync", "Vercel"],
+    description: "Real-time web application that eliminates the chaos of group food orders. Lets hosts create a shared ordering space in seconds, gives teammates a live menu with personal selections, and automatically consolidates items for the kitchen with built-in bill and fee splitting.",
+    badge: "Next.js + Real-Time",
+    imageUrl: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1200&auto=format&fit=crop",
+    projectUrl: "https://github.com/AhmedGamalFarouk/orderly",
+    liveUrl: "https://orderly-eosin.vercel.app",
+  },
+  {
+    id: 8,
     title: "Game Studio",
     subtitle: "Next.js Game Collection & Wishlist Portal",
     category: "Web",
