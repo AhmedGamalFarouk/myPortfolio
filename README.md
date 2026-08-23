@@ -85,7 +85,7 @@ This project is deployed on **Vercel** with automatic continuous deployment (CD)
 
 ## 📬 Contact
 
-- **Email**: [ahmedgamalfarouk44@gmail.com](mailto:ahmedgamalfarouk44@gmail.com)
+- **Email**: [ahmedgamalfarouk0@gmail.com](mailto:ahmedgamalfarouk0@gmail.com)
 - **LinkedIn**: [linkedin.com/in/ahmed-gamal-farouk](https://linkedin.com/in/ahmed-gamal-farouk)
 - **GitHub**: [github.com/AhmedGamalFarouk](https://github.com/AhmedGamalFarouk)
 - **Phone**: +20 102 351 0831
