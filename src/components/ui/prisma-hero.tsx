@@ -172,6 +172,7 @@ const projects: Project[] = [
     badge: "React + Three.js",
     gradient: "from-red-500/20 via-blue-500/10 to-transparent",
     projectUrl: "https://github.com/AhmedGamalFarouk/Red-bull-event",
+    liveUrl: "https://redbullevent.vercel.app",
     imageUrl: "/images/red-bull-event-cover.jpg",
   },
   {

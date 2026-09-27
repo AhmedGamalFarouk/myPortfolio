@@ -35,7 +35,7 @@
 | **Cinema Flux** 🎬 | Web | `React`, `Redux Toolkit`, `Vite`, `Bootstrap 5` | [Live App](https://ahmedgamalfarouk.github.io/cinema-flux/) \| [GitHub Repo](https://github.com/AhmedGamalFarouk/cinema-flux) |
 | **Eshtry Menny** 🛍️ | Mobile | `Flutter`, `SQLite`, `BLoC`, `REST API` | [GitHub Repo](https://github.com/AhmedGamalFarouk/Eshtry-menny) |
 | **Project ECHO** 🌌 | Web | `Next.js 15`, `Convex`, `Clerk Auth`, `Mapbox GL JS` | [GitHub Repo](https://github.com/AhmedGamalFarouk/project-echo) |
-| **Red Bull Gravity Egypt** 🥫 | Web | `React 19`, `Three.js`, `React Three Fiber`, `GSAP` | [GitHub Repo](https://github.com/AhmedGamalFarouk/Red-bull-event) |
+| **Red Bull Gravity Egypt** 🥫 | Web | `React 19`, `Three.js`, `React Three Fiber`, `GSAP` | [Live App](https://redbullevent.vercel.app) \| [GitHub Repo](https://github.com/AhmedGamalFarouk/Red-bull-event) |
 | **Game Studio** 🎮 | Web | `Next.js`, `React`, `Tailwind CSS`, `REST API` | [GitHub Repo](https://github.com/AhmedGamalFarouk/game-studio) |
 
 ---

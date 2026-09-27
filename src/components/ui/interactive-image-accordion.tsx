@@ -107,6 +107,7 @@ export const defaultProjectsAccordionItems: ProjectAccordionItemData[] = [
     badge: "React + Three.js",
     imageUrl: "/images/red-bull-event-cover.jpg",
     projectUrl: "https://github.com/AhmedGamalFarouk/Red-bull-event",
+    liveUrl: "https://redbullevent.vercel.app",
   },
   {
     id: 9,
