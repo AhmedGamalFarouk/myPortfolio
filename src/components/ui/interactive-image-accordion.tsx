@@ -99,6 +99,17 @@ export const defaultProjectsAccordionItems: ProjectAccordionItemData[] = [
   },
   {
     id: 8,
+    title: "Red Bull Gravity Egypt",
+    subtitle: "Interactive 3D Event Landing Page",
+    category: "Web",
+    tech: ["React 19", "TypeScript", "Vite", "Three.js", "React Three Fiber", "GSAP", "Lenis", "Tailwind CSS"],
+    description: "Interactive 3D event landing page for Red Bull Gravity Egypt, a concept action-sports weekend across Giza, Dahab, Sinai and New Cairo. Features a photorealistic Three.js Red Bull can with water droplets, GSAP ScrollTrigger storytelling with Lenis smooth scroll, and a showroom that lets you score and compare three distinct design directions side by side.",
+    badge: "React + Three.js",
+    imageUrl: "/images/red-bull-event-cover.jpg",
+    projectUrl: "https://github.com/AhmedGamalFarouk/Red-bull-event",
+  },
+  {
+    id: 9,
     title: "Game Studio",
     subtitle: "Next.js Game Collection & Wishlist Portal",
     category: "Web",

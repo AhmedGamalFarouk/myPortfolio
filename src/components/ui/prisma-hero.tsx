@@ -163,6 +163,18 @@ const projects: Project[] = [
     imageUrl: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1200&auto=format&fit=crop",
   },
   {
+    id: "red-bull-event",
+    title: "Red Bull Gravity Egypt",
+    subtitle: "Interactive 3D Event Landing Page",
+    tech: ["React 19", "TypeScript", "Vite", "Three.js", "React Three Fiber", "GSAP", "Lenis", "Tailwind CSS"],
+    description: "Interactive 3D event landing page for Red Bull Gravity Egypt, a concept action-sports weekend across Giza, Dahab, Sinai and New Cairo. Features a photorealistic Three.js Red Bull can with water droplets, GSAP ScrollTrigger storytelling with Lenis smooth scroll, and a showroom that lets you score and compare three distinct design directions side by side.",
+    category: "Web",
+    badge: "React + Three.js",
+    gradient: "from-red-500/20 via-blue-500/10 to-transparent",
+    projectUrl: "https://github.com/AhmedGamalFarouk/Red-bull-event",
+    imageUrl: "/images/red-bull-event-cover.jpg",
+  },
+  {
     id: "game-studio",
     title: "Game Studio",
     subtitle: "Next.js Game Collection & Wishlist Portal",
